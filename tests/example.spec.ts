@@ -25,5 +25,3 @@ test('認証', async ({ page }) => {
     await expect(page.getByRole('heading', { name: 'Sign In' })).toBeVisible()
   })
 });
-
-
