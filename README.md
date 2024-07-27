@@ -15,11 +15,18 @@ Access it by http://localhost:3000
 npm run db:studio 
 ```
 
+## Run Test
+
+```bash
+pnpm i
+pnpm exec playwright install
+pnpm exec playwright test
+```
+
 ## Folders:
 - API model: lib > actions 
 - API integration: src > app 
 - UI: src > app > components
-
 
 ## テスト計画の概要
 ### 目的と範囲 
