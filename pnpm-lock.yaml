@@ -145,6 +145,9 @@ devDependencies:
   eslint-config-next:
     specifier: 14.0.3
     version: 14.0.3(eslint@8.57.0)(typescript@5.5.4)
+  playwright-ctrf-json-reporter:
+    specifier: ^0.0.15
+    version: 0.0.15
   postcss:
     specifier: ^8.4.31
     version: 8.4.40
@@ -6557,6 +6560,10 @@ packages:
     resolution: {integrity: sha512-+ym0jNbcjikaOwwSZycFbwkWgfruWvYlJfThKYAlImbxUgdWFO2oW70ojPm4OpE4t6TAo2FY/smM+hpVTtkhDA==}
     engines: {node: '>=18'}
     hasBin: true
+    dev: true
+
+  /playwright-ctrf-json-reporter@0.0.15:
+    resolution: {integrity: sha512-VA+hCH+uc+7snY2s49eKjo95bkyFX7qP5Lk3Ttp0xtYoTIBEKVa9cRv8lmy4xo10TM02lePibcFV2/Q9pURziw==}
     dev: true
 
   /playwright@1.45.3:
