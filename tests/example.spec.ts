@@ -1,18 +1,14 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+const BASE_URL = 'https://todo-app-qajp.vercel.app';
+const USER_EMAIL = 'test@hackaton.com'
+const USER_PASSWORD = 'test123!'
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test('sign in', async ({ page }) => {
+  await page.goto(BASE_URL);
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByPlaceholder('name@example.com').fill(USER_EMAIL);
+  await page.locator('#password').fill(USER_PASSWORD);
+  await page.getByRole('button', { name: 'Log in with Email' }).click();
+  await expect(page.getByRole('heading', { name: USER_EMAIL })).toBeVisible()
 });
