@@ -1,20 +1,22 @@
 import { test, expect, Page } from '@playwright/test';
 
 const BASE_URL = 'https://todo-app-qajp.vercel.app';
-const USER_EMAIL = 'test@hackaton.com';
-const USER_PASSWORD = 'test123!';
 
-export const signIn = async (page: Page) => {
+export const signIn = async ({
+  page, email, password
+}:{
+  page: Page, email: string, password: string
+}) => {
   await test.step('sign in', async () => {
     await page.goto(BASE_URL);
 
     await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.getByPlaceholder('name@example.com').fill(USER_EMAIL);
-    await page.locator('#password').fill(USER_PASSWORD);
+    await page.getByPlaceholder('name@example.com').fill(email);
+    await page.locator('#password').fill(password);
     await page.getByRole('button', { name: 'Log in with Email' }).click();
 
     await expect(page).toHaveURL('https://todo-app-qajp.vercel.app/todo');
-    await expect(page.getByRole('heading', { name: USER_EMAIL })).toBeVisible();
+    await expect(page.getByRole('heading', { name: email })).toBeVisible();
   });
 };
 
