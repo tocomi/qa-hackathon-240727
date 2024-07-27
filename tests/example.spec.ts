@@ -22,7 +22,7 @@ test('認証', async ({ page }) => {
     await page.getByRole('menuitem', { name: 'Signout ⌘Q' }).click();
 
     await expect(page).toHaveURL(/^https:\/\/todo-app-qajp.vercel.app\/login/)
-    await page.getByRole('heading', { name: 'Sign In' }).click();
+    await expect(page.getByRole('heading', { name: 'Sign In' })).toBeVisible()
   })
 });
 
