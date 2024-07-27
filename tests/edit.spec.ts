@@ -1,10 +1,20 @@
 import test, { expect } from '@playwright/test';
 import { signIn, signOut, signUp } from './utils';
 
+const USER_PASSWORD = 'test123!';
+
 test('更新系のテスト', async ({ page }) => {
   const email = `test+${Date.now()}@hackaton.com`;
-  await signUp(page, email);
-  await signIn(page, email);
+  await signUp({
+    page,
+    email,
+    password: USER_PASSWORD,
+  });
+  await signIn({
+    page,
+    email,
+    password: USER_PASSWORD,
+  });
 
   await test.step('4. Create a new to-do', async () => {
     await page.getByRole('button', { name: 'Add New' }).click();

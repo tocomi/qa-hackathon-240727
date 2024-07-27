@@ -34,7 +34,15 @@ export const signOut = async (page: Page) => {
   });
 };
 
-export const signUp = async (page: Page, email: string, password: string) => {
+export const signUp = async ({
+  page,
+  email,
+  password,
+}: {
+  page: Page;
+  email: string;
+  password: string;
+}) => {
   await test.step('sign up', async () => {
     await page.goto(`${BASE_URL}/register`);
 
