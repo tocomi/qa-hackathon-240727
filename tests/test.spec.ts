@@ -12,3 +12,13 @@ test('TODO一覧を表示する', async ({ page }) => {
 
   await signOut(page)
 });
+
+test('検索', async ({ page }) => {
+  await signIn({page, email: USER_EMAIL, password: USER_PASSWORD});
+
+  await page.getByPlaceholder('Search by title...').fill('買い物');
+  await expect(page.getByRole('rowheader')).toHaveCount(1);
+  await expect(page.getByRole('rowheader', { name: '買い物リスト' })).toBeVisible();
+
+  await signOut(page)
+});
